@@ -5,7 +5,7 @@
       <w-counter/>
       <p>Свадьба</p>
       <p>Коли и Кати</p>
-      <p>1.07.2023</p>
+      <p>01.07.2023</p>
     </w-page-block>
     <w-page-block color="blue">
       <p>Дорогие мама и папа!</p>

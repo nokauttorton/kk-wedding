@@ -5,5 +5,5 @@
 // })
 
 module.exports = {
-    publicPath: process.env.NODE_ENV === 'production' ? '/kkwedding.github.io/' : '/'
+    publicPath: process.env.NODE_ENV === 'production' ? '/kk-wedding/' : '/'
 }
