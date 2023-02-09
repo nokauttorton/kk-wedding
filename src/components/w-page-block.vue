@@ -12,6 +12,10 @@ export default {
       type: String,
       default: 'bisque'
     },
+    backgroundImage: {
+      type: Boolean,
+      default: false
+    },
     centered: {
       type: Boolean,
       default: true
@@ -29,6 +33,7 @@ export default {
         'column': this.centered,
         'justify-center': this.centered,
         'align-center': this.centered,
+        'background-image': this.backgroundImage
       }
     }
   }
@@ -39,5 +44,10 @@ export default {
 <style lang="scss" scoped>
 .page-block {
   height: 100vh;
+  flex-wrap: nowrap;
 }
+.background-image {
+    background-image: url('../assets/background.jpg');
+    background-size: cover;
+  }
 </style>
