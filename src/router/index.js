@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/:guest?',
+    path: '/',
     name: 'home',
     component: MainPage
   },

@@ -74,7 +74,7 @@ export default {
       }
     },
     mounted() {
-      this.personalTitle = this.guests[this.$route.params.guest] || 'Дорогой гость'
+      this.personalTitle = this.guests[this.$route.query?.guest] || 'Дорогой гость'
     }
 }
 </script>
