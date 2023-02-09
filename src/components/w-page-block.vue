@@ -19,6 +19,10 @@ export default {
     centered: {
       type: Boolean,
       default: true
+    },
+    customHeight: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -33,7 +37,9 @@ export default {
         'column': this.centered,
         'justify-center': this.centered,
         'align-center': this.centered,
-        'background-image': this.backgroundImage
+        'background-image': this.backgroundImage,
+        'page-block': !this.customHeight,
+        'custom-height': this.customHeight
       }
     }
   }
@@ -49,5 +55,5 @@ export default {
 .background-image {
     background-image: url('../assets/background.jpg');
     background-size: cover;
-  }
+}
 </style>

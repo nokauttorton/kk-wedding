@@ -24,6 +24,10 @@ body {
     }
 }
 
+.relative {
+    position: relative;
+}
+
 .bw {
     background-color: white;
 }
@@ -63,6 +67,10 @@ body {
 
 .text-center {
     text-align: center;
+}
+
+.cp {
+    cursor: pointer;
 }
 
 @for $i from 0 through 25 {
@@ -172,6 +180,21 @@ body {
     }
   }
 
+  .rotate {
+    animation-name: rotation;
+    animation-duration: 1s;
+    animation-iteration-count: 2;
+    animation-timing-function: linear;
+    @keyframes rotation {
+      0% {
+          transform:rotate(0deg);
+      }
+      100% {
+          transform:rotate(360deg);
+      }
+    }
+  }
+
 @media (min-width: 320px) { //mobile
     .page-title-big {
         font-size: 50px;
@@ -185,6 +208,30 @@ body {
     .page-title-small {
         font-size: 16px;
     }
+    .custom-height {
+        height: 150vh!important;
+    }
+    .about-us {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        .photo-block {
+            width: 100%;
+            .we {
+                width: 100%;
+                height: auto;
+            }
+        }
+        .about-paragraph {
+            width: 100%;
+        }
+        .stars {
+            right: unset;
+            left: 44%;
+            top: 7%;
+            width: 200px;
+            height: 350px;
+        }
+    }
 }
 
 @media (min-width: 768px) { //tablet
@@ -196,10 +243,34 @@ body {
     }
     .page-title-middle {
         font-size: 20px;
-      }
+    }
     .page-title-small {
         font-size: 16px;
-      }
+    }
+    .custom-height {
+        height: 100vh!important;
+    }
+    .about-us {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        .photo-block {
+            width: 100%;
+            .we {
+                width: 386px;
+                height: 525px;
+            }
+        }
+        .about-paragraph {
+            width: 100%;
+        }
+        .stars {
+            right: 14%;
+            top: 3%;
+            left: unset;
+            width: 300px;
+            height: 525px;
+        }
+    }
 }
 
 @media (min-width: 1024px) { //laptop
@@ -211,8 +282,15 @@ body {
     }
     .page-title-middle {
         font-size: 24px;
-      }
+    }
     .page-title-small {
         font-size: 16px;
-      }
+    }
+    .about-us {
+        flex-direction: row;
+        .we {
+            width: 386px;
+            height: 525px;
+        }
+    }
 }
