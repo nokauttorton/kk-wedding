@@ -37,6 +37,10 @@ body {
     flex-wrap: wrap;
 }
 
+.nowrap {
+    flex-wrap: nowrap;
+}
+
 .row {
     flex-direction: row;
 }
@@ -71,6 +75,18 @@ body {
 
 .cp {
     cursor: pointer;
+}
+
+.white-border {
+    border: 3px solid white;
+}
+
+.text-black {
+    color: black !important;
+}
+
+.text-blue {
+    color: #0C1B6A !important;
 }
 
 @for $i from 0 through 25 {
@@ -137,6 +153,9 @@ body {
     .ptb-#{$i} {
         padding: calc(4px * #{$i}) 0 !important;
     }
+    .lh-#{$i} {
+        line-height: calc(5px * #{$i});
+    }
 }
 
 .before-enter {
@@ -144,6 +163,7 @@ body {
     img,
     .page-title-small,
     .page-title-middle,
+    .page-title-normal,
     .page-title-large,
     .page-title-big {
       opacity: 0;
@@ -172,6 +192,7 @@ body {
     img,
     .page-title-small,
     .page-title-middle,
+    .page-title-normal,
     .page-title-large,
     .page-title-big {
       opacity: 1;
@@ -202,6 +223,9 @@ body {
     .page-title-large {
         font-size: 35px;
     }
+    .page-title-normal {
+        font-size: 28px;
+    }
     .page-title-middle {
         font-size: 20px;
     }
@@ -222,6 +246,7 @@ body {
             }
         }
         .about-paragraph {
+            height: 100vh;
             width: 100%;
         }
         .stars {
@@ -232,6 +257,50 @@ body {
             height: 350px;
         }
     }
+    .our-event {
+        flex-direction: column;
+        .list-item {
+            margin-top: 20px;
+            padding-left: 0;
+        }
+        .shedule-block {
+            height: 100vh;
+            width: 100%;
+        }
+        .place-block {
+            height: 100vh;
+            width: 100%;
+            .venue {
+                width: 345px; 
+                height: auto;
+            }
+        }
+    }
+    .suggestions-block {
+        height: 250vh;
+        .suggestions {
+            justify-content: space-between;
+            overflow-x: scroll;
+            white-space: nowrap;
+            height: fit-content;
+            .suggestion {
+                max-width: 682px;
+            }
+        }
+        .suggestions-description {
+            width: 90%;
+        }
+        .colors {
+            height: fit-content;
+            flex-direction: column;
+        }
+    }
+    .contact-persons {
+        flex-direction: column;
+        .contact-person {
+            margin-top: 50px;
+        }
+    }
 }
 
 @media (min-width: 768px) { //tablet
@@ -240,6 +309,9 @@ body {
     }
     .page-title-large {
         font-size: 50px;
+    }
+    .page-title-normal {
+        font-size: 32px;
     }
     .page-title-middle {
         font-size: 20px;
@@ -271,6 +343,48 @@ body {
             height: 525px;
         }
     }
+    .our-event {
+        flex-direction: column;
+        .list-item {
+            margin-top: 20px;
+            padding-left: 50px;
+        }
+        .shedule-block {
+            width: 100%;
+        }
+        .place-block {
+            width: 100%;
+            .venue {
+                width: 476px; 
+                height: 331px;
+            }
+        }
+    }
+    .suggestions-block {
+        height: 150vh;
+        .suggestions {
+            justify-content: space-between;
+            overflow-x: scroll;
+            white-space: nowrap;
+            height: fit-content;
+            .suggestion {
+                max-width: 682px;
+            }
+        }
+        .suggestions-description {
+            width: 90%;
+        }
+        .colors {
+            height: fit-content;
+            flex-direction: column;
+        }
+    }
+    .contact-persons {
+        flex-direction: column;
+        .contact-person {
+            margin-top: 50px;
+        }
+    }
 }
 
 @media (min-width: 1024px) { //laptop
@@ -279,6 +393,9 @@ body {
     }
     .page-title-large {
         font-size: 64px;
+    }
+    .page-title-normal {
+        font-size: 40px;
     }
     .page-title-middle {
         font-size: 24px;
@@ -291,6 +408,43 @@ body {
         .we {
             width: 386px;
             height: 525px;
+        }
+    }
+    .our-event {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        .list-item {
+            margin-top: 20px;
+            padding-left: 50px;
+        }
+        .place-block {
+            .venue {
+                width: 476px; 
+                height: 331px;
+            }
+        }
+    }
+    .suggestions-block {
+        height: 100vh;
+        .suggestions {
+            justify-content: space-evenly;
+            white-space: inherit;
+            height: auto;
+        }
+        .suggestions-description {
+            width: 100%;
+        }
+        .colors {
+            height: fit-content;
+            flex-direction: row;
+        }
+    }
+    .contact-persons {
+        flex-direction: row;
+        justify-content: space-evenly;
+        top: 80%;
+        .contact-person {
+            margin-top: 0;
         }
     }
 }

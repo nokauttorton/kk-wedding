@@ -49,7 +49,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .page-block {
-  height: 100vh;
+  min-height: 100vh;
   flex-wrap: nowrap;
 }
 .background-image {
