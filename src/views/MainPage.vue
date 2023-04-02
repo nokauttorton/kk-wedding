@@ -84,7 +84,7 @@
             <div class="page-title-small" v-html="suggestion.text"></div>
           </div>
         </div>
-        <div class="page-title-middle suggestions-description text-center mt-5">Будем рады, если при выборе наряда вы поддержите цветовую гамму нашей свадьбы 
+        <div class="page-title-middle suggestions-description text-center mt-5 prl-3">Будем рады, если при выборе наряда вы поддержите цветовую гамму нашей свадьбы 
           <br/>(но это необязательно, главное, чтобы вам было удобно!)
           <br/>Жми по цету чтобы узнать его идентификатор
         </div>
@@ -313,7 +313,6 @@ export default {
         height: 64px;
         width: 64px;
         border-radius: 50%;
-        border: white solid 10px;
         position: relative;
 
         p {
