@@ -282,14 +282,6 @@ body {
     }
     .suggestions-block {
         min-height: 100vh;
-        .suggestions {
-            justify-content: space-between;
-            overflow-x: scroll;
-            height: fit-content;
-            .suggestion {
-                min-width: 85vw;
-            }
-        }
         .suggestions-description {
             width: 90%;
         }
@@ -297,9 +289,11 @@ body {
             height: fit-content;
             flex-direction: column;
             align-items: center;
-            .color-circle p {
+            .color-circle {
                 border: white solid 10px;
-                left: -50%;
+                p {
+                    left: -50%;
+                }
             }
         }
     }
@@ -383,23 +377,14 @@ body {
     }
     .suggestions-block {
         min-height: 100vh;
-        .suggestions {
-            justify-content: space-between;
-            overflow-x: scroll;
-            height: fit-content;
-            .suggestion {
-                max-width: 682px;
-            }
-        }
-        .suggestions-description {
-            width: 90%;
-        }
         .colors {
             height: fit-content;
-            .color-circle p {
+            .color-circle {
                 border: white solid 10px;
-                white-space: nowrap;
-                left: -50%;
+                p {
+                    white-space: nowrap;
+                    left: -50%;
+                }
             }
         }
     }
@@ -453,10 +438,7 @@ body {
         .suggestions {
             justify-content: space-evenly;
             white-space: inherit;
-            height: auto;
-            .suggestion {
-                min-width: unset;
-            }
+            display: flex;
         }
         .suggestions-description {
             width: 100%;

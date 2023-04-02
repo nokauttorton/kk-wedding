@@ -78,7 +78,7 @@
     <w-page-block color="rgba(225, 188, 55, 1)" :centered="false" v-scrollfadeanimation>
       <div class="suggestions-block flex justify-center">
         <div class="page-title-large text-center wp-10 pt-10 mb-5" @click="rotate">Пожелания</div>
-        <div class="suggestions flex nowrap row">
+        <div class="suggestions">
           <div class="suggestion white-border" v-for="suggestion in suggestions" :key="suggestion.title">
             <div class="page-title-middle">{{ suggestion.title }}</div>
             <div class="page-title-small" v-html="suggestion.text"></div>
@@ -86,12 +86,12 @@
         </div>
         <div class="page-title-middle suggestions-description text-center mt-5 prl-3">Будем рады, если при выборе наряда вы поддержите цветовую гамму нашей свадьбы 
           <br/>(но это необязательно, главное, чтобы вам было удобно!)
-          <br/>Жми по цету чтобы узнать его идентификатор
+          <br/>Жми по цвету чтобы узнать его идентификатор
         </div>
         <div class="colors flex">
           <div class="color flex column nowrap" v-for="color in colors" :key="color.color">
             <div class="color-circle" :style="{'background-color': color.color}" @click="openMobileTooltipToggle(color)">
-              <p class="text-center text-black" :style="mobileTooltipStyle(color)">{{ color.hex || color.rgba }}</p>
+              <p class="text-center text-black" :style="mobileTooltipStyle(color)">{{ color.title }}</p>
             </div>
           </div>
         </div>
@@ -102,7 +102,7 @@
       <div class="contacts-block flex justify-center">
         <div class="contact-text">
           <div class="page-title-large text-center wp-10 pt-10 mb-15" @click="rotate">Контакты</div>
-          <div class="page-title-middle text-center mb-10">По любым вопросам вы можете связаться с нами или нашим организатором</div>
+          <div class="page-title-middle text-center mb-10 prl-3">По любым вопросам вы можете связаться с нами или нашим организатором</div>
           <div class="contact-persons">
             <div class="contact-person" v-for="contact in contacts" :key="contact.photo">
               <img :src="getImgUrl(contact.photo)" height="200" width="200" :alt="contact.name" class="person-photo"/>
@@ -148,31 +148,37 @@ export default {
           {
             color: 'rgba(12, 27, 106, 1)',
             hex: '#0C1B6A',
+            title: 'темно-синий',
             openMobileTooltip: false
           },
           {
             color: 'rgba(116, 0, 83, 0.7)',
             rgba: 'rgba(116, 0, 83, 0.7)',
+            title: 'малиновый',
             openMobileTooltip: false
           },
           {
             color: 'rgba(137, 123, 175, 0.7)',
             rgba: 'rgba(137, 123, 175, 0.7)',
+            title: 'лиловый',
             openMobileTooltip: false
           },
           {
             color: 'rgba(245, 212, 92, 1)',
             hex: '#F5D45C',
+            title: 'желтый',
             openMobileTooltip: false
           },
           {
             color: 'rgba(191, 218, 224, 1)',
             hex: '#BFDAE0',
+            title: 'голубой',
             openMobileTooltip: false
           },
           {
             color: 'rgba(237, 238, 192, 1)',
             hex: '#EDEEC0',
+            title: 'бежевый',
             openMobileTooltip: false
           }
         ],
@@ -277,6 +283,7 @@ export default {
 .place-block {
   position: relative;
   text-align: center;
+  align-items: center;
 
   a {
     &:hover {
@@ -297,7 +304,7 @@ export default {
     padding: 0 10px;
     .suggestion {
       text-align: center;
-      margin: 0 25px;
+      margin: 0 25px 30px;
       padding: 15px;
     }
   }
@@ -332,6 +339,7 @@ export default {
           display: none;
           visibility: hidden;
           position: absolute;
+          white-space: nowrap;
           z-index: 2;
           bottom: 100%;
           background-color: white;
@@ -347,7 +355,8 @@ export default {
 .contact-text {
   height: 50vh;
   width: 100%;
-  background-color: #0C1B6A;
+  // background-color: #0C1B6A;
+  background-color:rgba(116, 0, 83, 0.7);
   position: relative;
   .contact-persons {
     position: absolute;
