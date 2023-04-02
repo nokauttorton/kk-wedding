@@ -3,7 +3,7 @@
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <w-page-block :backgroundImage="true" v-scrollfadeanimation>
       <div class="flex justify-center">
-        <div class="title-block white-border">
+        <div class="title-block">
           <div class="page-title-big text-center mb-5" @click="rotate">Свадьба</div>
           <div class="page-title-big text-center mb-7" @click="rotate">Коли и Кати</div>
         </div>
@@ -17,13 +17,14 @@
       <div class="page-title-large text-center mb-5">{{ personalTitle }}!</div>
       <div class="page-title-large text-center mb-7">Мы женимся!</div>
       <div class="paragraph-wrapper flex justify-center mb-7">
-        <div class="page-title-middle text-center paragraph w-7">
+        <div class="page-title-middle text-center paragraph w-7 prl-3">
           Мы счастливы пригласить вас на нашу свадьбу. 
           Для нас очень важно, чтобы вы смогли разделить с нами самое счастливое мгновение в нашей жизни. 
           Порадуйте нас своим присутствием
         </div>
       </div>
-      <div class="page-title-middle text-center mb-7">1 июля 2023 года</div>
+      <div class="page-title-middle text-center mb-3">1 июля 2023 года</div>
+      <div class="page-title-middle text-center mb-7">15:00</div>
       <div class="page-title-middle hearts flex justify-center mb-7">
         <span @click="rotate" class="mr-5 heart-rotate">&hearts;</span>
         <span @click="rotate" class="mr-5 heart-rotate">&hearts;</span>
@@ -35,13 +36,14 @@
     <w-page-block color="white" v-scrollfadeanimation>
       <div class="flex about-us">
         <div class="wp-5 flex justify-center align-center relative photo-block">
+          <div class="about-side-block"></div>
           <img src="../assets/we.png" class="we" @click="rotate"/>
-          <img src="../assets/stars.gif" class="stars" width="300" height="525"/>
+          <!-- <img src="../assets/stars.gif" class="stars" width="300" height="525"/> -->
         </div>
         <div class="wp-5 about-paragraph">
           <div class="page-title-large text-center mt-10 mb-7" @click="rotate">Наша история</div>
           <div class="paragraph-wrapper flex justify-center">
-            <div class="page-title-middle text-center paragraph w-5 mb-5 lh-6">
+            <div class="page-title-middle text-center paragraph w-5 mb-5 lh-6 prl-3">
               Мы познакомились летом 2017 года в приложении для знакомств. 
               Спустя неделю после знакомства мы пошли на первое свидание в парк Эрмитаж на концерт джазовой музыки. 
             </div>
@@ -65,8 +67,8 @@
         <div class="wp-5 flex column align-center place-block">
           <div class="place-side-block"></div>
           <div class="page-title-large text-center text-black mt-10 mb-7" @click="rotate">Где</div>
-          <a href="https://loftprovans.ru/" class="page-title-middle text-black mt-15" :style="{'text-decoration': 'none'}">Лофт Прованс</a>
-          <a href="https://yandex.ru/maps/org/loft_provans/223105516174/?clid=1537599&ll=37.654942%2C55.809272&z=12"
+          <a href="https://loftprovans.ru/" target="_blank" class="page-title-middle text-black mt-15" :style="{'text-decoration': 'none'}">Лофт Прованс</a>
+          <a href="https://yandex.ru/maps/org/loft_provans/223105516174/?clid=1537599&ll=37.654942%2C55.809272&z=12" target="_blank"
           class="page-title-middle text-black mt-10">г.Москва, 1-й Рижский переулок 2с1</a>
           <img src="../assets/provance.jpg" class="venue mt-15" @click="rotate"/>
         </div>
@@ -75,18 +77,22 @@
 
     <w-page-block color="rgba(225, 188, 55, 1)" :centered="false" v-scrollfadeanimation>
       <div class="suggestions-block flex justify-center">
-        <div class="page-title-large text-center wp-10 pt-10 mb-25" @click="rotate">Пожелания</div>
+        <div class="page-title-large text-center wp-10 pt-10 mb-5" @click="rotate">Пожелания</div>
         <div class="suggestions flex nowrap row">
           <div class="suggestion white-border" v-for="suggestion in suggestions" :key="suggestion.title">
             <div class="page-title-middle">{{ suggestion.title }}</div>
             <div class="page-title-small" v-html="suggestion.text"></div>
           </div>
         </div>
-        <div class="page-title-middle suggestions-description text-center mt-25">Будем рады, если при выборе наряда вы поддержите цветовую гамму нашей свадьбы <br/>(но это необязательно, главное, чтобы вам было удобно!)</div>
-        <div class="colors flex mt-10">
+        <div class="page-title-middle suggestions-description text-center mt-5">Будем рады, если при выборе наряда вы поддержите цветовую гамму нашей свадьбы 
+          <br/>(но это необязательно, главное, чтобы вам было удобно!)
+          <br/>Жми по цету чтобы узнать его идентификатор
+        </div>
+        <div class="colors flex">
           <div class="color flex column nowrap" v-for="color in colors" :key="color.color">
-            <div class="color-circle mb-5" :style="{'background-color': color.color}"></div>
-            <div class="page-title-small text-center text-black">{{ color.hex || color.rgba }}</div>
+            <div class="color-circle" :style="{'background-color': color.color}" @click="openMobileTooltipToggle(color)">
+              <p class="text-center text-black" :style="mobileTooltipStyle(color)">{{ color.hex || color.rgba }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -95,14 +101,14 @@
     <w-page-block color="white" :centered="false" v-scrollfadeanimation>
       <div class="contacts-block flex justify-center">
         <div class="contact-text">
-          <div class="page-title-large text-center wp-10 pt-10 mb-25" @click="rotate">Контакты</div>
-          <div class="page-title-middle text-center mt-25">По любым вопросам вы можете связаться с нами или нашим организатором</div>
+          <div class="page-title-large text-center wp-10 pt-10 mb-15" @click="rotate">Контакты</div>
+          <div class="page-title-middle text-center mb-10">По любым вопросам вы можете связаться с нами или нашим организатором</div>
           <div class="contact-persons">
             <div class="contact-person" v-for="contact in contacts" :key="contact.photo">
               <img :src="getImgUrl(contact.photo)" height="200" width="200" :alt="contact.name" class="person-photo"/>
               <p class="page-title-small text-blue">{{ contact.name }}</p>
               <p class="page-title-small text-blue">{{ contact.phoneNumber }}</p>
-              <a class="page-title-small text-blue" :href="getTelegramLink(contact.telegramTag)">{{ contact.telegramTag }}</a>
+              <a class="page-title-small text-blue" target="_blank" :href="getTelegramLink(contact.telegramTag)">{{ contact.telegramTag }}</a>
             </div>
           </div>
         </div>
@@ -141,27 +147,33 @@ export default {
         colors: [
           {
             color: 'rgba(12, 27, 106, 1)',
-            hex: '#0C1B6A'
+            hex: '#0C1B6A',
+            openMobileTooltip: false
           },
           {
             color: 'rgba(116, 0, 83, 0.7)',
-            rgba: 'rgba(116, 0, 83, 0.7)'
+            rgba: 'rgba(116, 0, 83, 0.7)',
+            openMobileTooltip: false
           },
           {
             color: 'rgba(137, 123, 175, 0.7)',
-            rgba: 'rgba(137, 123, 175, 0.7)'
+            rgba: 'rgba(137, 123, 175, 0.7)',
+            openMobileTooltip: false
           },
           {
             color: 'rgba(245, 212, 92, 1)',
-            hex: '#F5D45C'
+            hex: '#F5D45C',
+            openMobileTooltip: false
           },
           {
             color: 'rgba(191, 218, 224, 1)',
-            hex: '#BFDAE0'
+            hex: '#BFDAE0',
+            openMobileTooltip: false
           },
           {
             color: 'rgba(237, 238, 192, 1)',
-            hex: '#EDEEC0'
+            hex: '#EDEEC0',
+            openMobileTooltip: false
           }
         ],
         contacts: [
@@ -195,6 +207,12 @@ export default {
           return `https://t.me/${tag.replace('@', '')}`
         }
         return 'javascript:void'
+      },
+      openMobileTooltipToggle(item) {
+        item.openMobileTooltip = !item.openMobileTooltip
+      },
+      mobileTooltipStyle(item) {
+        return  item.openMobileTooltip ? 'display: block; visibility: visible;' : ''
       }
     },
     mounted() {
@@ -218,12 +236,20 @@ export default {
 }
 
 .counter-wrapper {
-  min-height: 300px;
   margin-top: 20px;
 }
 
 .paragraph-wrapper {
   width: 100%;
+}
+
+.about-side-block {
+  background-color: rgba(77, 47, 116, 0.5);
+  position: absolute;
+  height: 40%;
+  width: 85%;
+  right: 5%;
+  top: 5%;
 }
 
 .hearts {
@@ -268,6 +294,7 @@ export default {
 }
 .suggestions-block {
   .suggestions {
+    padding: 0 10px;
     .suggestion {
       text-align: center;
       margin: 0 25px;
@@ -277,7 +304,7 @@ export default {
   .colors {
     width: fit-content;
     padding: 20px;
-    background-color: white;
+    // background-color: white;
     .color {
       padding: 10px;
       margin: 0 10px;
@@ -286,6 +313,33 @@ export default {
         height: 64px;
         width: 64px;
         border-radius: 50%;
+        border: white solid 10px;
+        position: relative;
+
+        p {
+          &::before {
+            content: "";
+            position: absolute;
+            transform: rotate(45deg);
+            background-color: white;
+            border-right: black solid 1px;
+            border-bottom: black solid 1px;
+            bottom: -6px;
+            left: 58px;
+            padding: 5px;
+            z-index: 1;
+          }
+
+          display: none;
+          visibility: hidden;
+          position: absolute;
+          z-index: 2;
+          bottom: 100%;
+          background-color: white;
+          border-radius: 10px;
+          border: black solid 1px;
+          padding: 10px 15px 10px 15px;
+        }
       }
     }
   }

@@ -225,12 +225,15 @@ body {
     }
     .page-title-normal {
         font-size: 28px;
+        font-weight: 300;
     }
     .page-title-middle {
         font-size: 20px;
+        font-weight: 300;
     }
     .page-title-small {
         font-size: 16px;
+        font-weight: 300;
     }
     .custom-height {
         height: 150vh!important;
@@ -238,6 +241,7 @@ body {
     .about-us {
         flex-direction: column;
         flex-wrap: nowrap;
+        position: relative;
         .photo-block {
             width: 100%;
             .we {
@@ -271,20 +275,19 @@ body {
             height: 100vh;
             width: 100%;
             .venue {
-                width: 345px; 
+                width: inherit; 
                 height: auto;
             }
         }
     }
     .suggestions-block {
-        height: 250vh;
+        min-height: 100vh;
         .suggestions {
             justify-content: space-between;
             overflow-x: scroll;
-            white-space: nowrap;
             height: fit-content;
             .suggestion {
-                max-width: 682px;
+                min-width: 85vw;
             }
         }
         .suggestions-description {
@@ -293,12 +296,26 @@ body {
         .colors {
             height: fit-content;
             flex-direction: column;
+            align-items: center;
+            .color-circle p {
+                left: -50%;
+            }
         }
     }
     .contact-persons {
         flex-direction: column;
         .contact-person {
             margin-top: 50px;
+        }
+    }
+}
+
+@media (min-width: 400px) { //special mobile
+    .suggestions-block .colors {
+        justify-content: center;
+        flex-direction: row;
+        .color {
+            width: 30%;
         }
     }
 }
@@ -321,6 +338,9 @@ body {
     }
     .custom-height {
         height: 100vh!important;
+    }
+    .title-block {
+        border: 3px solid white;
     }
     .about-us {
         flex-direction: column;
@@ -361,11 +381,10 @@ body {
         }
     }
     .suggestions-block {
-        height: 150vh;
+        min-height: 100vh;
         .suggestions {
             justify-content: space-between;
             overflow-x: scroll;
-            white-space: nowrap;
             height: fit-content;
             .suggestion {
                 max-width: 682px;
@@ -376,7 +395,10 @@ body {
         }
         .colors {
             height: fit-content;
-            flex-direction: column;
+            .color-circle p {
+                white-space: nowrap;
+                left: -50%;
+            }
         }
     }
     .contact-persons {
@@ -430,6 +452,9 @@ body {
             justify-content: space-evenly;
             white-space: inherit;
             height: auto;
+            .suggestion {
+                min-width: unset;
+            }
         }
         .suggestions-description {
             width: 100%;
@@ -437,6 +462,19 @@ body {
         .colors {
             height: fit-content;
             flex-direction: row;
+            .color {
+                width: auto;
+                .color-circle {
+                    &:hover {
+                        border: lightsteelblue solid 10px;
+                        p {
+                            visibility: visible;
+                            display: block;
+                        }
+                    }
+                }
+            }
+            
         }
     }
     .contact-persons {

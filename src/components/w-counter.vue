@@ -2,19 +2,19 @@
     <div v-if="started" class="counter flex">
         <div class="flex column align-items-center timer-block page-title-small">
           <div class="date" :class="classes">{{ counter.days }}</div>
-          <span>Дней</span>
+          <span>дней</span>
         </div>
         <div class="flex column align-items-center timer-block page-title-small">
           <div class="date" :class="classes">{{ counter.hours }}</div>
-          <span>Часов</span>
+          <span>часов</span>
         </div>
         <div class="flex column align-items-center timer-block page-title-small">
           <div class="date" :class="classes">{{ counter.minutes }}</div>
-          <span>Минут</span>
+          <span>минут</span>
         </div>
         <div class="flex column align-items-center timer-block page-title-small">
           <div class="date" :class="classes">{{ counter.seconds }}</div>
-          <span>Секунд</span>
+          <span>секунд</span>
         </div>
     </div>
 </template>

@@ -53,7 +53,7 @@ export default {
   flex-wrap: nowrap;
 }
 .background-image {
-    background-image: url('../assets/background.jpg');
+    background-image: url('../assets/background2.png');
     background-size: cover;
 }
 </style>
