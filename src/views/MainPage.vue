@@ -75,7 +75,7 @@
       </div>
     </w-page-block>
 
-    <w-page-block color="rgba(225, 188, 55, 1)" :centered="false" v-scrollfadeanimation>
+    <w-page-block color="#D4AE25" :centered="false" v-scrollfadeanimation>
       <div class="suggestions-block flex justify-center">
         <div class="page-title-large text-center wp-10 pt-10 mb-5" @click="rotate">Пожелания</div>
         <div class="suggestions">
@@ -176,8 +176,8 @@ export default {
             openMobileTooltip: false
           },
           {
-            color: 'rgba(237, 238, 192, 1)',
-            hex: '#EDEEC0',
+            color: 'rgba(243, 222, 196, 1)',
+            hex: '#F3DEC4',
             title: 'бежевый',
             openMobileTooltip: false
           }
@@ -355,8 +355,7 @@ export default {
 .contact-text {
   height: 50vh;
   width: 100%;
-  // background-color: #0C1B6A;
-  background-color:rgba(116, 0, 83, 0.7);
+  background-color:#0C1B6A;
   position: relative;
   .contact-persons {
     position: absolute;
