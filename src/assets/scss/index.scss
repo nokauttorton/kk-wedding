@@ -89,6 +89,10 @@ body {
     color: #0C1B6A !important;
 }
 
+.font-weight-normal {
+    font-weight: 500;
+}
+
 @for $i from 0 through 25 {
     .w-#{$i} {
         max-width: calc(100px * #{$i});
@@ -250,7 +254,7 @@ body {
             }
         }
         .about-paragraph {
-            height: 100vh;
+            min-height: 100vh;
             width: 100%;
         }
         .stars {
@@ -300,7 +304,10 @@ body {
     .contact-persons {
         flex-direction: column;
         .contact-person {
-            margin-top: 50px;
+            margin-top: 20px;
+            &:first-child {
+                margin-top: 15%;
+            }
         }
     }
 }
@@ -440,6 +447,9 @@ body {
             justify-content: space-evenly;
             white-space: inherit;
             display: flex;
+            .suggestion {
+                width: 25%;
+            }
         }
         .suggestions-description {
             width: 100%;
@@ -469,6 +479,9 @@ body {
         top: 80%;
         .contact-person {
             margin-top: 0;
+            &:first-child {
+                margin-top: 0;
+            }
         }
     }
 }

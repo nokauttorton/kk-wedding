@@ -23,14 +23,14 @@
           Порадуйте нас своим присутствием
         </div>
       </div>
-      <div class="page-title-middle text-center mb-3">1 июля 2023 года</div>
-      <div class="page-title-middle text-center mb-7">в 15:00</div>
+      <div class="page-title-middle text-center mb-3 prl-3">1 июля 2023 года</div>
+      <div class="page-title-middle text-center mb-7 prl-3">в 15:00</div>
       <div class="page-title-middle hearts flex justify-center mb-7">
         <span @click="rotate" class="mr-5 heart-rotate">&hearts;</span>
         <span @click="rotate" class="mr-5 heart-rotate">&hearts;</span>
         <span @click="rotate" class="heart-rotate">&hearts;</span>
       </div>
-      <div class="page-title-middle text-center" @click="rotate">С любовью, Коля и Катя</div>
+      <div class="page-title-middle text-center prl-3" @click="rotate">С любовью, Коля и Катя</div>
     </w-page-block>
 
     <w-page-block color="white" v-scrollfadeanimation>
@@ -57,7 +57,7 @@
     <w-page-block color="white" v-scrollfadeanimation>
       <div class="flex our-event">
         <div class="wp-5 shedule-block justify-center">
-          <div class="page-title-normal text-center mt-10 mb-7" @click="rotate" style="font-weight: 500">Во сколько</div>
+          <div class="page-title-normal text-center font-weight-normal mt-10 mb-7" @click="rotate">Во сколько</div>
           <div class="page-title-normal">
             <ul class="ml-12">
                 <li class="list-item">15:00 Сбор гостей</li>
@@ -68,7 +68,7 @@
         </div>
         <div class="wp-5 flex column align-center place-block">
           <div class="place-side-block"></div>
-          <div class="page-title-normal text-center text-black mt-10 mb-7" @click="rotate" style="font-weight: 500">Где</div>
+          <div class="page-title-normal text-center text-black font-weight-normal mt-10 mb-7" @click="rotate">Где</div>
           <a href="https://loftprovans.ru/" target="_blank" class="page-title-middle text-black mt-15" :style="{'text-decoration': 'none'}">Лофт Прованс</a>
           <a href="https://yandex.ru/maps/org/loft_provans/223105516174/?clid=1537599&ll=37.654942%2C55.809272&z=12" target="_blank"
           class="page-title-middle text-black mt-10">г.Москва, 1-й Рижский переулок 2с1</a>
@@ -104,7 +104,7 @@
       <div class="contacts-block flex justify-center">
         <div class="contact-text">
           <div class="page-title-large text-center wp-10 pt-10 mb-15" @click="rotate">Контакты</div>
-          <div class="page-title-middle text-center mb-10 prl-3">По любым вопросам вы можете связаться с нами или нашим организатором</div>
+          <div class="page-title-middle text-center prl-10">По любым вопросам вы можете связаться с нами или нашим организатором</div>
           <div class="contact-persons">
             <div class="contact-person" v-for="contact in contacts" :key="contact.photo">
               <img :src="getImgUrl(contact.photo)" height="200" width="200" :alt="contact.name" class="person-photo"/>
@@ -303,7 +303,6 @@ export default {
 }
 .suggestions-block {
   .suggestions {
-    padding: 0 10px;
     .suggestion {
       text-align: center;
       margin: 0 25px 30px;
