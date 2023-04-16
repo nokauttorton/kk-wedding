@@ -37,8 +37,8 @@
       <div class="flex about-us">
         <div class="wp-5 flex justify-center align-center relative photo-block">
           <div class="about-side-block"></div>
-          <img src="../assets/we.png" class="we" @click="rotate"/>
-          <!-- <img src="../assets/stars.gif" class="stars" width="300" height="525"/> -->
+          <img src="../assets/we.png" class="we" @click="el => rotateWithStars(el)"/>
+          <img v-if="showStars" src="../assets/stars.gif" class="stars" width="300" height="525"/>
         </div>
         <div class="wp-5 about-paragraph">
           <div class="page-title-large text-center mt-10 mb-7" @click="rotate">Про нас</div>
@@ -128,6 +128,7 @@ export default {
     data() {
       return {
         personalTitle: '',
+        showStars: false,
         suggestions: [
           {
             title: 'Стоп-слово',
@@ -209,6 +210,10 @@ export default {
     methods: {
       getImgUrl(pic) {
         return require('../assets/' + pic);
+      },
+      rotateWithStars(el) {
+        this.showStars = !this.showStars
+        this.rotate(el)
       },
       getTelegramLink(tag) {
         if (tag) {
