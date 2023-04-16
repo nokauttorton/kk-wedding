@@ -13,9 +13,9 @@
       </div>
     </w-page-block>
     
-    <w-page-block color="rgba(116, 0, 83, 0.7)" v-scrollfadeanimation>
+    <w-page-block color="rgba(116, 0, 83, 0.85)" v-scrollfadeanimation>
       <div class="page-title-large text-center mb-5">{{ personalTitle }}!</div>
-      <div class="page-title-large text-center mb-7">Мы женимся!</div>
+      <div class="page-title-normal text-center mb-7">Мы женимся!</div>
       <div class="paragraph-wrapper flex justify-center mb-7">
         <div class="page-title-middle text-center paragraph w-7 prl-3">
           Мы счастливы пригласить вас на нашу свадьбу. 
@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="page-title-middle text-center mb-3">1 июля 2023 года</div>
-      <div class="page-title-middle text-center mb-7">15:00</div>
+      <div class="page-title-middle text-center mb-7">в 15:00</div>
       <div class="page-title-middle hearts flex justify-center mb-7">
         <span @click="rotate" class="mr-5 heart-rotate">&hearts;</span>
         <span @click="rotate" class="mr-5 heart-rotate">&hearts;</span>
@@ -41,11 +41,13 @@
           <!-- <img src="../assets/stars.gif" class="stars" width="300" height="525"/> -->
         </div>
         <div class="wp-5 about-paragraph">
-          <div class="page-title-large text-center mt-10 mb-7" @click="rotate">Наша история</div>
+          <div class="page-title-large text-center mt-10 mb-7" @click="rotate">Про нас</div>
           <div class="paragraph-wrapper flex justify-center">
             <div class="page-title-middle text-center paragraph w-5 mb-5 lh-6 prl-3">
               Мы познакомились летом 2017 года в приложении для знакомств. 
-              Спустя неделю после знакомства мы пошли на первое свидание в парк Эрмитаж на концерт джазовой музыки. 
+              Спустя неделю мы пошли на первое свидание в парк Эрмитаж на концерт джазовой музыки.
+              Нас объединяет музыка, работа в сфере информационных технологий, любовь к кошкам и вкусной еде:)
+              Нашу свадьбу хотим сделать про нас, поэтому на празднике будет музыкальный ведущий и много творческих номеров.
             </div>
           </div>
         </div>
@@ -55,7 +57,7 @@
     <w-page-block color="white" v-scrollfadeanimation>
       <div class="flex our-event">
         <div class="wp-5 shedule-block justify-center">
-          <div class="page-title-large text-center mt-10 mb-7" @click="rotate">Во сколько</div>
+          <div class="page-title-normal text-center mt-10 mb-7" @click="rotate" style="font-weight: 500">Во сколько</div>
           <div class="page-title-normal">
             <ul class="ml-12">
                 <li class="list-item">15:00 Сбор гостей</li>
@@ -66,7 +68,7 @@
         </div>
         <div class="wp-5 flex column align-center place-block">
           <div class="place-side-block"></div>
-          <div class="page-title-large text-center text-black mt-10 mb-7" @click="rotate">Где</div>
+          <div class="page-title-normal text-center text-black mt-10 mb-7" @click="rotate" style="font-weight: 500">Где</div>
           <a href="https://loftprovans.ru/" target="_blank" class="page-title-middle text-black mt-15" :style="{'text-decoration': 'none'}">Лофт Прованс</a>
           <a href="https://yandex.ru/maps/org/loft_provans/223105516174/?clid=1537599&ll=37.654942%2C55.809272&z=12" target="_blank"
           class="page-title-middle text-black mt-10">г.Москва, 1-й Рижский переулок 2с1</a>
@@ -80,13 +82,13 @@
         <div class="page-title-large text-center wp-10 pt-10 mb-5" @click="rotate">Пожелания</div>
         <div class="suggestions">
           <div class="suggestion white-border" v-for="suggestion in suggestions" :key="suggestion.title">
-            <div class="page-title-middle">{{ suggestion.title }}</div>
+            <div class="page-title-middle mb-3">{{ suggestion.title }}</div>
             <div class="page-title-small" v-html="suggestion.text"></div>
           </div>
         </div>
-        <div class="page-title-middle suggestions-description text-center mt-5 prl-3">Будем рады, если при выборе наряда вы поддержите цветовую гамму нашей свадьбы 
-          <br/>(но это необязательно, главное, чтобы вам было удобно!)
-          <br/>Жми по цвету чтобы узнать его идентификатор
+        <div class="page-title-middle suggestions-description text-center mt-5 prl-3">Будем рады, если при выборе наряда вы поддержите цветовую гамму нашей свадьбы,а для мужчин подойдут однотонные классические костюмы.
+          <br/>(но это необязательно, главное, чтобы вам было удобно!).
+          <br/>Наведите на кружок, чтобы узнать цвет свадьбы
         </div>
         <div class="colors flex">
           <div class="color flex column nowrap" v-for="color in colors" :key="color.color">
@@ -133,15 +135,15 @@ export default {
           },
           {
             title: 'Цветы',
-            text: 'Будем благодарны, если вы воздержитесь от криков «Горько!» на празднике. <br/>Для нас поцелуй — знак выражения чувств, он не может быть по заказу.'
+            text: 'Если вы захотите подарить нам цветы, подарите 1-3 цветка, <br/>а мы соберем их в один общий букет.'
           },
           {
             title: 'Подарки',
-            text: 'Будем благодарны, если вы воздержитесь от криков «Горько!» на празднике. <br/>Для нас поцелуй — знак выражения чувств, он не может быть по заказу.'
+            text: 'Подарки оставляем на ваше усмотрение. <br/> Будем рады и подарку в конверте:)'
           },
           {
-            title: 'Что-нибудь',
-            text: 'Будем благодарны, если вы воздержитесь от криков «Горько!» на празднике. <br/>Для нас поцелуй — знак выражения чувств, он не может быть по заказу.'
+            title: 'Сюрпризы',
+            text: 'Торжество планируется в формате квартирника.<br/> Поэтому нам будет приятно, если вы подготовите творческий подарок. <br/> Позднее с вами по этому поводу свяжется наш ведущий.'
           }
         ],
         colors: [
@@ -264,7 +266,7 @@ export default {
 }
 
 .about-paragraph {
-  background-color: rgba(77, 47, 116, 0.7);
+  background-color: rgba(77, 47, 116, 0.85);
 }
 .heart-rotate {
   cursor: pointer;
@@ -277,7 +279,7 @@ export default {
 }
 
 .shedule-block {
-  background-color: #A7D0D9;
+  background-color: rgba(167, 208, 217, 1);
 }
 
 .place-block {
@@ -295,7 +297,7 @@ export default {
     position: absolute;
     height: 60%;
     width: 60%;
-    left: 7%;
+    left: 3%;
     top: 17%;
   }
 }
