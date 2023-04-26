@@ -86,7 +86,7 @@
             <div class="page-title-small" v-html="suggestion.text"></div>
           </div>
         </div>
-        <div class="page-title-middle suggestions-description text-center mt-5 prl-3">Будем рады, если при выборе наряда вы поддержите цветовую гамму нашей свадьбы,а для мужчин подойдут однотонные классические костюмы.
+        <div class="page-title-middle suggestions-description text-center mt-5 prl-3">Будем рады, если при выборе наряда вы поддержите цветовую гамму нашей свадьбы.
           <br/>(но это необязательно, главное, чтобы вам было удобно!).
           <br/>Наведите на кружок, чтобы узнать цвет свадьбы
         </div>
@@ -108,7 +108,7 @@
           <div class="contact-persons">
             <div class="contact-person" v-for="contact in contacts" :key="contact.photo">
               <img :src="getImgUrl(contact.photo)" height="200" width="200" :alt="contact.name" class="person-photo"/>
-              <p class="page-title-small text-blue">{{ contact.name }}</p>
+              <p class="page-title-small text-blue" v-html="contact.name"/>
               <p class="page-title-small text-blue">{{ contact.phoneNumber }}</p>
               <a class="page-title-small text-blue" target="_blank" :href="getTelegramLink(contact.telegramTag)">{{ contact.telegramTag }}</a>
             </div>
@@ -136,7 +136,7 @@ export default {
           },
           {
             title: 'Цветы',
-            text: 'Если вы захотите подарить нам цветы, подарите 1-3 цветка, <br/>а мы соберем их в один общий букет.'
+            text: 'Пожалуйста не дарите нам цветы, <br/>мы не сможем о них позаботиться('
           },
           {
             title: 'Подарки',
@@ -155,14 +155,14 @@ export default {
             openMobileTooltip: false
           },
           {
-            color: 'rgba(116, 0, 83, 0.7)',
-            rgba: 'rgba(116, 0, 83, 0.7)',
+            color: 'rgba(116, 0, 83, 1)',
+            rgba: 'rgba(116, 0, 83, 1)',
             title: 'малиновый',
             openMobileTooltip: false
           },
           {
-            color: 'rgba(137, 123, 175, 0.7)',
-            rgba: 'rgba(137, 123, 175, 0.7)',
+            color: 'rgba(137, 123, 175, 1)',
+            rgba: 'rgba(137, 123, 175, 1)',
             title: 'лиловый',
             openMobileTooltip: false
           },
@@ -199,9 +199,9 @@ export default {
             telegramTag: '@nokauttorton'
           },
           {
-            photo: 'noPhotoPerson.png',
-            name: '',
-            phoneNumber: '',
+            photo: 'organizers.png',
+            name: '<div style="margin-bottom: 16px;">Организаторы</div>Ксения +79162311414',
+            phoneNumber: 'Максим +79151581414',
             telegramTag: ''
           },
         ]
@@ -222,7 +222,15 @@ export default {
         return 'javascript:void'
       },
       openMobileTooltipToggle(item) {
+        if (!item.openMobileTooltip) {
+          this.closeAllColorsTooltips()
+        }
         item.openMobileTooltip = !item.openMobileTooltip
+      },
+      closeAllColorsTooltips() {
+        this.colors.forEach(color => {
+            color.openMobileTooltip = false
+        })
       },
       mobileTooltipStyle(item) {
         return  item.openMobileTooltip ? 'display: block; visibility: visible;' : ''
