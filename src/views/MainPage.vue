@@ -63,6 +63,9 @@
                 <li class="list-item">15:00 Сбор гостей</li>
                 <li class="list-item">16:00 Церемония</li>
                 <li class="list-item">17:00 Банкет</li>
+                <li class="list-item">20:30 Торт</li>
+                <li class="list-item">21:00 Дискотека</li>
+                <li class="list-item">23:00 Окончание мероприятия</li>
             </ul>
           </div>
         </div>
@@ -136,7 +139,7 @@ export default {
           },
           {
             title: 'Цветы',
-            text: 'Пожалуйста не дарите нам цветы, <br/>мы не сможем о них позаботиться('
+            text: 'Пожалуйста не дарите нам цветы, <br/>мы не сможем о них позаботиться.'
           },
           {
             title: 'Подарки',
