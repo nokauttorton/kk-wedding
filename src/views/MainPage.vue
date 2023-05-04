@@ -77,7 +77,7 @@
       </div>
     </w-page-block>
 
-    <w-page-block color="#D4AE25" :centered="false" v-scrollfadeanimation>
+    <w-page-block color="rgba(188, 153, 27, 1)" :centered="false" v-scrollfadeanimation>
       <div class="suggestions-block flex justify-center">
         <div class="page-title-large text-center wp-10 pt-10 mb-5" @click="rotate">Пожелания</div>
         <div class="suggestions">
@@ -104,7 +104,7 @@
       <div class="contacts-block flex justify-center">
         <div class="contact-text">
           <div class="page-title-large text-center wp-10 pt-10 mb-15" @click="rotate">Контакты</div>
-          <div class="page-title-middle text-center prl-10">По любым вопросам вы можете связаться с нами или нашим организатором</div>
+          <div class="page-title-middle text-center prl-10">По любым вопросам вы можете связаться с нами или нашими организаторами</div>
           <div class="contact-persons">
             <div class="contact-person" v-for="contact in contacts" :key="contact.photo">
               <img :src="getImgUrl(contact.photo)" height="200" width="200" :alt="contact.name" class="person-photo"/>
