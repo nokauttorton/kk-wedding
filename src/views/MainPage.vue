@@ -18,9 +18,7 @@
       <div class="page-title-normal text-center mb-7">Мы женимся!</div>
       <div class="paragraph-wrapper flex justify-center mb-7">
         <div class="page-title-middle text-center paragraph w-7 prl-3">
-          Мы счастливы пригласить вас на нашу свадьбу. 
-          Для нас очень важно, чтобы вы смогли разделить с нами самое счастливое мгновение в нашей жизни. 
-          Порадуйте нас своим присутствием
+          {{ getPersonalText() }}
         </div>
       </div>
       <div class="page-title-middle text-center mb-3 prl-3">1 июля 2023 года</div>
@@ -65,7 +63,7 @@
                 <li class="list-item">17:00 Банкет</li>
                 <li class="list-item">20:30 Торт</li>
                 <li class="list-item">21:00 Дискотека</li>
-                <li class="list-item">23:00 Окончание мероприятия</li>
+                <li class="list-item">23:00 The end</li>
             </ul>
           </div>
         </div>
@@ -237,6 +235,13 @@ export default {
       },
       mobileTooltipStyle(item) {
         return  item.openMobileTooltip ? 'display: block; visibility: visible;' : ''
+      },
+      getPersonalText() {
+          const guestFromQuery = this.$route.query?.guest
+          const officials = ['pK', 'mK', 'gT', 'OA', 'NV', 'IK', 'T']
+          const textPersonal = 'Мы счастливы пригласить тебя на нашу свадьбу. Для нас очень важно твое присутствие в самое счастливое мгновение в нашей жизни.'
+          const textOfficial = 'Мы счастливы пригласить вас на нашу свадьбу. Для нас очень важно, чтобы вы смогли разделить с нами самое счастливое мгновение в нашей жизни. Порадуйте нас своим присутствием.'
+          return officials.includes(guestFromQuery) ? textOfficial : textPersonal
       }
     },
     mounted() {
