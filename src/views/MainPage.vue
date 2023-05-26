@@ -239,7 +239,7 @@ export default {
       getPersonalText() {
           const guestFromQuery = this.$route.query?.guest
           if (!guestFromQuery) return 'Мы счастливы пригласить тебя на нашу свадьбу.'
-          const officials = ['pK', 'mK', 'gT', 'OA', 'NV', 'IK', 'T']
+          const officials = ['pK', 'mK', 'gT', 'OA', 'NV', 'IK', 'T', 'O', 'YaK']
           const textPersonal = 'Мы счастливы пригласить тебя на нашу свадьбу. Для нас очень важно твое присутствие в самое счастливое мгновение в нашей жизни.'
           const textOfficial = 'Мы счастливы пригласить вас на нашу свадьбу. Для нас очень важно, чтобы вы смогли разделить с нами самое счастливое мгновение в нашей жизни. Порадуйте нас своим присутствием.'
           return officials.includes(guestFromQuery) ? textOfficial : textPersonal
